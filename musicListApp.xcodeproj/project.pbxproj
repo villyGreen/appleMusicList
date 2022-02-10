@@ -16,6 +16,8 @@
 		3A9A40DC27B2ECFD00836909 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9A40DA27B2ECFD00836909 /* LaunchScreen.storyboard */; };
 		3A9A40E727B2F3E800836909 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40E627B2F3E800836909 /* RegisterViewController.swift */; };
 		3A9A40EA27B2F4BB00836909 /* extension + textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40E927B2F4BB00836909 /* extension + textField.swift */; };
+		3A9A40EC27B584A100836909 /*  extension + UIlabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40EB27B584A100836909 /*  extension + UIlabel.swift */; };
+		3A9A40EE27B5907B00836909 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40ED27B5907B00836909 /* CustomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		3A9A40DD27B2ECFD00836909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A9A40E627B2F3E800836909 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3A9A40E927B2F4BB00836909 /* extension + textField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + textField.swift"; sourceTree = "<group>"; };
+		3A9A40EB27B584A100836909 /*  extension + UIlabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " extension + UIlabel.swift"; sourceTree = "<group>"; };
+		3A9A40ED27B5907B00836909 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				3A9A40E927B2F4BB00836909 /* extension + textField.swift */,
+				3A9A40EB27B584A100836909 /*  extension + UIlabel.swift */,
+				3A9A40ED27B5907B00836909 /* CustomView.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -180,8 +186,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A9A40D127B2ECF600836909 /* MainViewController.swift in Sources */,
+				3A9A40EE27B5907B00836909 /* CustomView.swift in Sources */,
 				3A9A40E727B2F3E800836909 /* RegisterViewController.swift in Sources */,
 				3A9A40CD27B2ECF600836909 /* AppDelegate.swift in Sources */,
+				3A9A40EC27B584A100836909 /*  extension + UIlabel.swift in Sources */,
 				3A9A40CF27B2ECF600836909 /* SceneDelegate.swift in Sources */,
 				3A9A40D727B2ECF600836909 /* musicListApp.xcdatamodeld in Sources */,
 				3A9A40EA27B2F4BB00836909 /* extension + textField.swift in Sources */,
