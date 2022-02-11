@@ -8,14 +8,10 @@
 
 import Foundation
 
-
 class ValidateService {
-    
     static let shared = ValidateService()
-    
     func validate(searchString: String, mode : Int) -> Bool {
-        
-        var password = " "
+
         let regexPhone = #"^((\+7|7|8)+([0-9]){10})$"#
         let regexPassword = #"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"#
         let regexUserName = #"^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"#
@@ -26,8 +22,7 @@ class ValidateService {
         case 1:
             return validateNumberPhone(pattern: regexPhone, search: searchString)
         case 2:
-            password = searchString
-             return validateNumberPhone(pattern: regexPassword, search: searchString)
+                         return validateNumberPhone(pattern: regexPassword, search: searchString)
         case 3:
             return validateNumberPhone(pattern: regexUserName, search: searchString)
         default:
@@ -36,7 +31,7 @@ class ValidateService {
         
         return false
     }
-    // #"^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$"#
+   
     func validateNumberPhone(pattern: String, search: String) -> Bool {
         let text = search
         var isFound = false
@@ -67,5 +62,4 @@ func comparePassword(firstPassword: String, secondPassword: String) -> Bool {
         }
         return compare
     }
-    
 }

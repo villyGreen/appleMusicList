@@ -14,18 +14,15 @@ class CustomView: UIView {
     init(label: UILabel, tf: UITextField) {
         super.init(frame: .zero)
         self.addSubview(label)
-        self.addSubview(tf)
+//        self.addSubview(tf)
         self.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        tf.translatesAutoresizingMaskIntoConstraints = false
+//        tf.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
              label.leadingAnchor.constraint(equalTo: self.leadingAnchor),
              label.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-             tf.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-             tf.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-             tf.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-             self.bottomAnchor.constraint(equalTo: tf.bottomAnchor)
+//             self.bottomAnchor.constraint(equalTo: tf.bottomAnchor)
         ])
        
     }

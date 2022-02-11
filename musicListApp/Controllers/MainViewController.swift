@@ -14,13 +14,11 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    
-    @IBAction func registerAction(_ sender: UIButton) {
+@IBAction func registerAction(_ sender: UIButton) {
         let registerVc = RegisterViewController()
         registerVc.modalPresentationStyle = .fullScreen
-        self.present(registerVc , animated: true, completion: nil)
+        self.present(registerVc, animated: true, completion: nil)
     }
-    
     @IBAction func inputAction(_ sender: UIButton) {
     }
 }
