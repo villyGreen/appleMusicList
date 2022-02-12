@@ -7,5 +7,6 @@ target 'musicListApp' do
 
   # Pods for musicListApp
 	pod 'SwiftLint'
-
+	pod 'Firebase/Firestore'
+	pod 'FirebaseUI/Auth'
 end
