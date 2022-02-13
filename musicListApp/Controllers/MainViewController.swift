@@ -20,5 +20,7 @@ class MainViewController: UIViewController {
         self.present(registerVc, animated: true, completion: nil)
     }
     @IBAction func inputAction(_ sender: UIButton) {
+        let authVc = AuthViewController()
+        self.present(authVc, animated: true, completion: nil)
     }
 }

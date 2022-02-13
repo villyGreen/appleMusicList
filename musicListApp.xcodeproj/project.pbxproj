@@ -19,6 +19,7 @@
 		3A9A40EC27B584A100836909 /*  extension + UIlabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40EB27B584A100836909 /*  extension + UIlabel.swift */; };
 		3A9A40F227B6962E00836909 /* ValidateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40F127B6962E00836909 /* ValidateService.swift */; };
 		3A9A40F627B81E9B00836909 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A9A40F527B81E9B00836909 /* GoogleService-Info.plist */; };
+		3A9A40F927B8DA2E00836909 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40F827B8DA2E00836909 /* AuthViewController.swift */; };
 		BC3A2FD33FE60B5A00B96E38 /* Pods_musicListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6332813E95668CA9CBC1FEEF /* Pods_musicListApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		3A9A40EB27B584A100836909 /*  extension + UIlabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " extension + UIlabel.swift"; sourceTree = "<group>"; };
 		3A9A40F127B6962E00836909 /* ValidateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateService.swift; sourceTree = "<group>"; };
 		3A9A40F527B81E9B00836909 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3A9A40F827B8DA2E00836909 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		3DECF030EC3CB2A435729858 /* Pods-musicListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musicListApp.release.xcconfig"; path = "Target Support Files/Pods-musicListApp/Pods-musicListApp.release.xcconfig"; sourceTree = "<group>"; };
 		6332813E95668CA9CBC1FEEF /* Pods_musicListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_musicListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				3A9A40D027B2ECF600836909 /* MainViewController.swift */,
-				3A9A40E627B2F3E800836909 /* RegisterViewController.swift */,
+				3A9A40F727B8D9FE00836909 /* Auth & SignUp */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -139,6 +141,15 @@
 				3A9A40F127B6962E00836909 /* ValidateService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		3A9A40F727B8D9FE00836909 /* Auth & SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				3A9A40E627B2F3E800836909 /* RegisterViewController.swift */,
+				3A9A40F827B8DA2E00836909 /* AuthViewController.swift */,
+			);
+			path = "Auth & SignUp";
 			sourceTree = "<group>";
 		};
 		9EB5140D5E0EEAB28F25E27C /* Frameworks */ = {
@@ -290,6 +301,7 @@
 				3A9A40EC27B584A100836909 /*  extension + UIlabel.swift in Sources */,
 				3A9A40CF27B2ECF600836909 /* SceneDelegate.swift in Sources */,
 				3A9A40D727B2ECF600836909 /* musicListApp.xcdatamodeld in Sources */,
+				3A9A40F927B8DA2E00836909 /* AuthViewController.swift in Sources */,
 				3A9A40EA27B2F4BB00836909 /* extension + textField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
