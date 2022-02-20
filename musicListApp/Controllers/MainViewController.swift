@@ -9,10 +9,12 @@
 import UIKit
 
 class MainViewController: UIViewController {
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
 
 @IBAction func registerAction(_ sender: UIButton) {
         let registerVc = RegisterViewController()
@@ -22,5 +24,6 @@ class MainViewController: UIViewController {
     @IBAction func inputAction(_ sender: UIButton) {
         let authVc = AuthViewController()
         self.present(authVc, animated: true, completion: nil)
+      
     }
 }

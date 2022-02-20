@@ -25,4 +25,11 @@ extension UITextField {
         bottomView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         
     }
+        func disableAutoFill() {
+            if #available(iOS 12, *) {
+                textContentType = .oneTimeCode
+            } else {
+                textContentType = .init(rawValue: "")
+            }
+        }
 }

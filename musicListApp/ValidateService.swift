@@ -11,28 +11,31 @@ import Foundation
 class ValidateService {
     static let shared = ValidateService()
     func validate(searchString: String, mode : Int) -> Bool {
-
+        
+        let mailPattern = #"^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$"#
         let regexPhone = #"^((\+7|7|8)+([0-9]){10})$"#
         let regexPassword = #"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"#
         let regexUserName = #"^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"#
-        if searchString == " " {
+        if searchString == " "  {
             return false
         }
         switch mode {
+        case 0:
+            return validateRegExspression(pattern: mailPattern, search: searchString)
         case 1:
-            return validateNumberPhone(pattern: regexPhone, search: searchString)
+            return validateRegExspression(pattern: regexPhone, search: searchString)
         case 2:
-                         return validateNumberPhone(pattern: regexPassword, search: searchString)
+            return validateRegExspression(pattern: regexPassword, search: searchString)
         case 3:
-            return validateNumberPhone(pattern: regexUserName, search: searchString)
+            return validateRegExspression(pattern: regexUserName, search: searchString)
         default:
             break
         }
         
         return false
     }
-   
-    func validateNumberPhone(pattern: String, search: String) -> Bool {
+    
+    func validateRegExspression(pattern: String, search: String) -> Bool {
         let text = search
         var isFound = false
         do {
@@ -40,20 +43,17 @@ class ValidateService {
             let results = regex.matches(in: text,
                                         range: NSRange(text.startIndex..., in: text))
             if !results.isEmpty {
-               isFound = true
-                print("hello")
+                isFound = true
             } else {
                 isFound =  false
-                print("world")
             }
         } catch let error {
             print("invalid regex: \(error.localizedDescription)")
-            
         }
         return isFound
     }
     
-func comparePassword(firstPassword: String, secondPassword: String) -> Bool {
+    func comparePassword(firstPassword: String, secondPassword: String) -> Bool {
         var compare = false
         if firstPassword == secondPassword {
             compare = true

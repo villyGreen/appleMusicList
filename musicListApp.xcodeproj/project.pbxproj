@@ -20,6 +20,9 @@
 		3A9A40F227B6962E00836909 /* ValidateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40F127B6962E00836909 /* ValidateService.swift */; };
 		3A9A40F627B81E9B00836909 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A9A40F527B81E9B00836909 /* GoogleService-Info.plist */; };
 		3A9A40F927B8DA2E00836909 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40F827B8DA2E00836909 /* AuthViewController.swift */; };
+		3A9A40FB27BA31F700836909 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40FA27BA31F600836909 /* AuthService.swift */; };
+		3A9A40FD27BA478600836909 /* extension + UIviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40FC27BA478600836909 /* extension + UIviewController.swift */; };
+		3A9A411A27BA8D3800836909 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A411927BA8D3600836909 /* TabBarController.swift */; };
 		BC3A2FD33FE60B5A00B96E38 /* Pods_musicListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6332813E95668CA9CBC1FEEF /* Pods_musicListApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +43,9 @@
 		3A9A40F127B6962E00836909 /* ValidateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateService.swift; sourceTree = "<group>"; };
 		3A9A40F527B81E9B00836909 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A9A40F827B8DA2E00836909 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		3A9A40FA27BA31F600836909 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		3A9A40FC27BA478600836909 /* extension + UIviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + UIviewController.swift"; sourceTree = "<group>"; };
+		3A9A411927BA8D3600836909 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3DECF030EC3CB2A435729858 /* Pods-musicListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musicListApp.release.xcconfig"; path = "Target Support Files/Pods-musicListApp/Pods-musicListApp.release.xcconfig"; sourceTree = "<group>"; };
 		6332813E95668CA9CBC1FEEF /* Pods_musicListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_musicListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,9 +92,9 @@
 		3A9A40CB27B2ECF600836909 /* musicListApp */ = {
 			isa = PBXGroup;
 			children = (
+				3A9A40E327B2F2CA00836909 /* Controllers */,
 				3A9A40F027B6961600836909 /* Services */,
 				3A9A40E827B2F49F00836909 /* Extensions */,
-				3A9A40E327B2F2CA00836909 /* Controllers */,
 				3A9A40E427B2F2DD00836909 /* Configure */,
 				3A9A40E527B2F2FB00836909 /* Materials */,
 				3A9A40DD27B2ECFD00836909 /* Info.plist */,
@@ -100,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				3A9A40D027B2ECF600836909 /* MainViewController.swift */,
+				3A9A411827BA8CD100836909 /* TabBar */,
 				3A9A40F727B8D9FE00836909 /* Auth & SignUp */,
 			);
 			path = Controllers;
@@ -131,6 +138,7 @@
 			children = (
 				3A9A40E927B2F4BB00836909 /* extension + textField.swift */,
 				3A9A40EB27B584A100836909 /*  extension + UIlabel.swift */,
+				3A9A40FC27BA478600836909 /* extension + UIviewController.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -139,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				3A9A40F127B6962E00836909 /* ValidateService.swift */,
+				3A9A40FA27BA31F600836909 /* AuthService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -150,6 +159,14 @@
 				3A9A40F827B8DA2E00836909 /* AuthViewController.swift */,
 			);
 			path = "Auth & SignUp";
+			sourceTree = "<group>";
+		};
+		3A9A411827BA8CD100836909 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3A9A411927BA8D3600836909 /* TabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		9EB5140D5E0EEAB28F25E27C /* Frameworks */ = {
@@ -301,6 +318,9 @@
 				3A9A40EC27B584A100836909 /*  extension + UIlabel.swift in Sources */,
 				3A9A40CF27B2ECF600836909 /* SceneDelegate.swift in Sources */,
 				3A9A40D727B2ECF600836909 /* musicListApp.xcdatamodeld in Sources */,
+				3A9A40FD27BA478600836909 /* extension + UIviewController.swift in Sources */,
+				3A9A40FB27BA31F700836909 /* AuthService.swift in Sources */,
+				3A9A411A27BA8D3800836909 /* TabBarController.swift in Sources */,
 				3A9A40F927B8DA2E00836909 /* AuthViewController.swift in Sources */,
 				3A9A40EA27B2F4BB00836909 /* extension + textField.swift in Sources */,
 			);
@@ -378,7 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -432,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

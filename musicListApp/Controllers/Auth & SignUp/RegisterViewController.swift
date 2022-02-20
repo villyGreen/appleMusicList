@@ -28,6 +28,10 @@ class RegisterViewController: UIViewController {
     let confirmPasswordLabel = UILabel(textLabel: "Потвердите Пароль", fontLabel: UIFont.systemFont(ofSize: 17),
                                        textAlpha: 0.9, textColor: .black)
     let confirmPasswordTf = UITextField(fontTf: UIFont(name: "Gill Sans", size: 15))
+    let mailLabel = UILabel(textLabel: "Почта",
+                            fontLabel: UIFont.systemFont(ofSize: 17),
+                            textAlpha: 0.9, textColor: .black)
+    let mailTF = UITextField(fontTf: UIFont(name: "Gill Sans", size: 15))
     var warningLabels = [UILabel]()
     let inputButton = UIButton(type: .system)
     let alreadyRegisterlabel = UILabel(textLabel: "Уже зарегистрированы?",
@@ -35,6 +39,7 @@ class RegisterViewController: UIViewController {
                                        textAlpha: 0.9, textColor: .black)
     let alreadyRegisterbutton = UIButton()
     var activeTextField: UITextField? = nil
+    var isError = false
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,8 +73,10 @@ extension RegisterViewController {
         phoneTf.tag = 2
         passwordTf.tag = 3
         confirmPasswordTf.tag = 4
+        mailTF.tag = 5
         passwordTf.textContentType = .oneTimeCode
         confirmPasswordTf.textContentType = .oneTimeCode
+        mailTF.autocapitalizationType = .none
         passwordTf.isSecureTextEntry = true
         confirmPasswordTf.isSecureTextEntry = true
         alreadyRegisterbutton.setTitle("Войти", for: .normal)
@@ -77,17 +84,27 @@ extension RegisterViewController {
         alreadyRegisterbutton.titleLabel?.font = UIFont(name: "Gill Sans", size: 22)
         alreadyRegisterbutton.alpha = 0.81
         inputButton.setTitle("Регистрация", for: .normal)
-        inputButton.addTarget(self, action: #selector(touchesButton), for: .touchUpInside)
         inputButton.setTitleColor(.systemRed, for: .normal)
         inputButton.alpha = 0.81
         inputButton.titleLabel?.font = UIFont(name: "Gill Sans", size: 22)
-        inputButton.addTarget(self, action: #selector(unwindFunc), for: .touchUpInside)
+        inputButton.addTarget(self, action: #selector(touchesButton), for: .touchUpInside)
+        alreadyRegisterbutton.addTarget(self, action: #selector(unwindFunc), for: .touchUpInside)
+        
     }
     @objc private func touchesButton() {
-        for item in 0..<4 {
-            warningLabels[item].isHidden = false
+        if !isError {
+            AuthService.shared.register(email: mailTF.text!, password: passwordTf.text!) { result in
+                switch result {
+                    
+                case .success(let user):
+                    self.showAlert(title: "Успешно", message: "Пользователь успешно зарегистрирован", actionOne: "Ok", actionTwo: "Back")
+                case .failure(let error):
+                    self.showAlert(title: "Ошибка", message: error.localizedDescription,actionOne: "Ok", actionTwo: "Back")
+                }
+            }
+            }
         }
-    }
+    
     @objc private func unwindFunc() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -97,26 +114,30 @@ extension RegisterViewController {
         mainLogo.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(mainLabel)
         mainLabel.translatesAutoresizingMaskIntoConstraints = false
-        let userNameStackView = UIStackView(arrangedSubviews: [userNameLabel, userNameTF, warningLabels[0]])
+        
+        let mailStackView = UIStackView(arrangedSubviews: [mailLabel, mailTF, warningLabels[0]])
+        mailStackView.axis = .vertical
+        mailStackView.spacing = 19
+        let userNameStackView = UIStackView(arrangedSubviews: [userNameLabel, userNameTF, warningLabels[1]])
         userNameStackView.axis = .vertical
         userNameStackView.spacing = 19
         userNameStackView.translatesAutoresizingMaskIntoConstraints = false
-        let phoneStackView = UIStackView(arrangedSubviews: [phoneLabel, phoneTf, warningLabels[1]])
+        let phoneStackView = UIStackView(arrangedSubviews: [phoneLabel, phoneTf, warningLabels[2]])
         phoneStackView.axis = .vertical
         phoneStackView.spacing = 19
         phoneStackView.translatesAutoresizingMaskIntoConstraints = false
-        let passwordStackView = UIStackView(arrangedSubviews: [passwordLabel, passwordTf, warningLabels[2]])
+        let passwordStackView = UIStackView(arrangedSubviews: [passwordLabel, passwordTf, warningLabels[3]])
         passwordStackView.axis = .vertical
         passwordStackView.spacing = 19
         passwordStackView.translatesAutoresizingMaskIntoConstraints = false
         let confirmPasswordStackView = UIStackView(arrangedSubviews: [confirmPasswordLabel,
                                                                       confirmPasswordTf,
-                                                                      warningLabels[3]])
+                                                                      warningLabels[4]])
         confirmPasswordStackView.axis = .vertical
         confirmPasswordStackView.spacing = 19
         confirmPasswordStackView.translatesAutoresizingMaskIntoConstraints = false
         confirmPasswordStackView.widthAnchor.constraint(equalToConstant: (view.frame.width - 40)).isActive = true
-        let contentView = UIStackView(arrangedSubviews: [userNameStackView, phoneStackView,
+        let contentView = UIStackView(arrangedSubviews: [userNameStackView, mailStackView, phoneStackView,
                                                          passwordStackView, confirmPasswordStackView, inputButton])
         contentView.axis = .vertical
         contentView.spacing = 55
@@ -146,12 +167,12 @@ extension RegisterViewController {
         ])
     }
     private func allWarningisHiden() {
-        for item in 0..<4 {
+        for item in 0..<5 {
             warningLabels[item].isHidden = true
         }
     }
     private func createWarningLabel() {
-        for _ in 0..<4 {
+        for _ in 0..<5 {
             let label = UILabel()
             label.text = "Неправильный формат"
             label.textColor = .systemRed
@@ -160,9 +181,11 @@ extension RegisterViewController {
             warningLabels.append(label)
         }
     }
+    
     private func addNotificationObservers() {
         userNameTF.delegate = self
         passwordTf.delegate = self
+        mailTF.delegate = self
         confirmPasswordTf.delegate = self
         phoneTf.delegate = self
         NotificationCenter.default.addObserver(self,
@@ -206,40 +229,56 @@ extension RegisterViewController: UITextFieldDelegate {
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if textField.tag == 1 {
+        switch textField.tag {
+            
+        case 1:
             if !ValidateService.shared.validate(searchString: userNameTF.text!, mode: 3) {
+                warningLabels[1].isHidden = false
+                warningLabels[1].text = "Неккоректный ввод"
+                isError = true
+            } else {
+                warningLabels[1].isHidden = true
+                isError = false
+            }
+        case 2:
+            if !ValidateService.shared.validate(searchString: phoneTf.text!, mode: 1) {
+                warningLabels[2].isHidden = false
+                warningLabels[2].text = "Неккоректный ввод"
+                  isError = true
+            } else {
+                warningLabels[2].isHidden = true
+                isError = false
+            }
+        case 3:
+            if !ValidateService.shared.validate(searchString: passwordTf.text!, mode: 2) {
+                warningLabels[3].isHidden = false
+                warningLabels[3].text = "Неккоректный ввод"
+                  isError = true
+            } else {
+                warningLabels[3].isHidden = true
+                isError = false
+            }
+        case 4:
+            if !ValidateService.shared.comparePassword(firstPassword: passwordTf.text!, secondPassword: confirmPasswordTf.text!) {
+                warningLabels[4].isHidden = false
+                warningLabels[4].text = "Пароли не совпадают"
+                  isError = true
+            } else {
+                warningLabels[4].isHidden = true
+                  isError = false
+            }
+        case 5:
+            print("tuts")
+            if !ValidateService.shared.validate(searchString: mailTF.text!, mode: 0) {
                 warningLabels[0].isHidden = false
                 warningLabels[0].text = "Неккоректный ввод"
             } else {
                 warningLabels[0].isHidden = true
             }
+            
+        default:
+            break
         }
-        
-        if textField.tag == 2 {
-            if !ValidateService.shared.validate(searchString: phoneTf.text!, mode: 1) {
-                warningLabels[1].isHidden = false
-                warningLabels[1].text = "Неккоректный ввод"
-            } else {
-                warningLabels[1].isHidden = true
-            }
-        }
-        if textField.tag == 3 {
-            if !ValidateService.shared.validate(searchString: passwordTf.text!, mode: 2) {
-                warningLabels[2].isHidden = false
-                warningLabels[2].text = "Неккоректный ввод"
-            } else {
-                warningLabels[2].isHidden = true
-            }
-        }
-        if textField.tag == 4 {
-            if !ValidateService.shared.comparePassword(firstPassword: passwordTf.text!, secondPassword: confirmPasswordTf.text!) {
-                warningLabels[3].isHidden = false
-                warningLabels[3].text = "Пароли не совпадают"
-            } else {
-                 warningLabels[3].isHidden = true
-            }
-        }
-        
         self.activeTextField = nil
     }
 }
