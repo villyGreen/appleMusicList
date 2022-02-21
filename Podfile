@@ -9,4 +9,5 @@ target 'musicListApp' do
 	pod 'SwiftLint'
 	pod 'Firebase/Firestore'
 	pod 'FirebaseUI/Auth'
+	pod 'SDWebImage', '~> 5.0'
 end

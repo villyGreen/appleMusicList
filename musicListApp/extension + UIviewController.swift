@@ -19,4 +19,12 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    func configureCell<T:CellConfiguring,U: Hashable>(collectionView : UICollectionView,cellType: T.Type,model: U,indexPath: IndexPath) -> T {
+           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseID, for: indexPath) as? T else {
+               fatalError("Unknown id cell")
+           }
+           cell.configure(value: model)
+           return cell
+       }
 }

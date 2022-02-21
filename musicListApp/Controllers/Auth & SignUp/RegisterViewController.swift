@@ -74,8 +74,16 @@ extension RegisterViewController {
         passwordTf.tag = 3
         confirmPasswordTf.tag = 4
         mailTF.tag = 5
-        passwordTf.textContentType = .oneTimeCode
-        confirmPasswordTf.textContentType = .oneTimeCode
+        if #available(iOS 12.0, *) {
+            passwordTf.textContentType = .oneTimeCode
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 12.0, *) {
+            confirmPasswordTf.textContentType = .oneTimeCode
+        } else {
+            // Fallback on earlier versions
+        }
         mailTF.autocapitalizationType = .none
         passwordTf.isSecureTextEntry = true
         confirmPasswordTf.isSecureTextEntry = true

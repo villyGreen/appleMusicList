@@ -89,7 +89,11 @@ extension AuthViewController {
         phoneTfNameTF.tag = 1
         passwordTf.tag = 2
         mailTF.tag = 3
-        passwordTf.textContentType = .oneTimeCode
+        if #available(iOS 12.0, *) {
+            passwordTf.textContentType = .oneTimeCode
+        } else {
+            // Fallback on earlier versions
+        }
         passwordTf.isSecureTextEntry = true
         inputButton.setTitle("Войти", for: .normal)
         inputButton.setTitleColor(.systemRed, for: .normal)
@@ -114,8 +118,11 @@ extension AuthViewController {
                 print("jj")
                 AuthService.shared.logIn(email: mailTF.text!, password: passwordTf.text!) { (result) in
                     switch result {
-                    case .success(let user):
-                        self.showAlert(title: "Успех", message: "gg", actionOne: "Ок", actionTwo: "Назад")
+                    case .success(let _):
+                        let tabbar = TabBarController()
+                        tabbar.modalTransitionStyle = .crossDissolve
+                        tabbar.modalPresentationStyle = .fullScreen
+                        self.present(tabbar, animated: true, completion: nil)
                     case .failure(let error):
                           self.showAlert(title: "Ошибка", message: error.localizedDescription,actionOne: "Ok", actionTwo: "Back")
                     }
@@ -124,7 +131,6 @@ extension AuthViewController {
         }
     }
     
-
     private func allWarningisHiden() {
         for item in 0..<3 {
             warningLabels[item].isHidden = true

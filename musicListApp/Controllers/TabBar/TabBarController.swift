@@ -12,17 +12,25 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        if #available(iOS 13.0, *) {
+            viewControllers = [
+                setupVc(VC: SearchViewController(), title: "Search", image: UIImage(named: "Search")!),
+                setupVc(VC: ListViewController(), title: "Music", image: UIImage(named: "Browse")!)
+            ]
+        } else {
+            // Fallback on earlier versions
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+   
+    
+    private func setupVc(VC: UIViewController, title: String, image: UIImage) -> UIViewController {
+        let navigationVc = UINavigationController(rootViewController: VC)
+        navigationVc.tabBarItem.image = image
+        navigationVc.tabBarItem.title = title
+        navigationVc.title = title
+        navigationVc.navigationBar.prefersLargeTitles = true
+        return navigationVc
     }
-    */
 
 }
