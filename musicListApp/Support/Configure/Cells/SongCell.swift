@@ -12,13 +12,9 @@ import SDWebImage
 class SongCell: UICollectionViewCell, CellConfiguring{
 
     let userImage = UIImageView()
-    
-    
     let userNameLabel = UILabel()
    let containerView = UIView()
    static var reuseID = "SongCell"
-   
-   
    
    override func prepareForReuse() {
        userImage.image = nil
@@ -30,6 +26,7 @@ class SongCell: UICollectionViewCell, CellConfiguring{
        }
        userNameLabel.text = song.nameOfSong
        let imageUrl = URL(string: song.image)
+    print(imageUrl);
        userImage.sd_setImage(with: imageUrl, completed: nil)
    }
    
@@ -58,12 +55,11 @@ class SongCell: UICollectionViewCell, CellConfiguring{
        userNameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
        userNameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
        
-    
-
    }
    
    override init(frame: CGRect) {
        super.init(frame: frame)
+    print("asfsa");
        self.backgroundColor = .red
        self.layer.cornerRadius = 8
        self.clipsToBounds = true

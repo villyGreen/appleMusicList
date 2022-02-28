@@ -14,7 +14,7 @@ class SearchViewController: UIViewController {
     let searchBarController = UISearchController(searchResultsController: nil)
     var dataSource: UICollectionViewDiffableDataSource<Section,Song>?
     var collectionView: UICollectionView?
-    var songs = [Song]()
+    var songs = Bundle.main.decode([Song].self, from: "users.json")
     let ss = Song(image: "https://music-ark.ru/upload/iblock/23e/23e3f8f8cc9ffec33ed0dec4ecca85b2.jpg", nameOfSong: "gg", nameOfCreator: "wp", timeOfSong: "12", id: "1")
 
     enum Section: Int, CaseIterable {
@@ -103,12 +103,11 @@ class SearchViewController: UIViewController {
         collectionView = UICollectionView(frame: view.bounds,
                                           collectionViewLayout: setupCompositionalLayout())
         collectionView!.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        collectionView!.backgroundColor = .white
-        //          collectionView?.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader , withReuseIdentifier: SectionHeader.reuseId)
-        collectionView?.delegate = self
-        collectionView?.register(SongCell.self, forCellWithReuseIdentifier:SongCell.reuseID)
+        collectionView!.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9764705882, blue: 1, alpha: 1)
         view.addSubview(collectionView!)
-        
+        collectionView?.delegate = self
+        print(SongCell.reuseID)
+        collectionView?.register(SongCell.self, forCellWithReuseIdentifier:SongCell.reuseID)
     }
     
     
