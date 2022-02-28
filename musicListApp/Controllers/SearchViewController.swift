@@ -23,10 +23,10 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        songs.append(ss)
         setupVc()
         setupCollectionnView()
         setupCompositionalLayout()
+            songs.append(ss)
         reloadData(searchText: nil)
             setupDataSource()
     }
@@ -46,22 +46,20 @@ class SearchViewController: UIViewController {
     
     @available(iOS 13.0, *)
     private func setupCompositionalLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) ->
-            NSCollectionLayoutSection? in
-            guard let section = Section(rawValue: sectionIndex)
-                else { fatalError("Unknown section")}
-            switch section {
-            case .songs:
-                return self.setupSongsSection()
-                
-            }
-        }
-        
-        let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = 20
-        layout.configuration = config
-        
-        return layout
+       let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) ->
+                  NSCollectionLayoutSection? in
+                  guard let section = Section(rawValue: sectionIndex)
+                      else { fatalError("Unknown section")}
+                  switch section {
+                  case .songs:
+                      return self.setupSongsSection()
+                  }
+              }
+              let config = UICollectionViewCompositionalLayoutConfiguration()
+              config.interSectionSpacing = 20
+              layout.configuration = config
+              
+              return layout
     }
     
     
@@ -69,22 +67,20 @@ class SearchViewController: UIViewController {
     @available(iOS 13.0, *)
     private func setupSongsSection() -> NSCollectionLayoutSection {
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-        
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.6))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                       subitem: item,
-                                                       count: 3)
-        group.interItemSpacing = .fixed(15)
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 15
-        section.contentInsets = NSDirectionalEdgeInsets(top: 15,
-                                                        leading: 15,
-                                                        bottom: 15,
-                                                        trailing: 15)
-        //        let header = createHeaderSection()
-        //        section.boundarySupplementaryItems = [header]
+      let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+             
+             let item = NSCollectionLayoutItem(layoutSize: itemSize)
+             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.6))
+             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                            subitem: item,
+                                                            count: 2)
+             group.interItemSpacing = .fixed(15)
+             let section = NSCollectionLayoutSection(group: group)
+             section.interGroupSpacing = 15
+             section.contentInsets = NSDirectionalEdgeInsets(top: 15,
+                                                             leading: 15,
+                                                             bottom: 15,
+                                                             trailing: 15)
         return section
         
     }
@@ -129,23 +125,6 @@ class SearchViewController: UIViewController {
                                           indexPath: indexPath)
             }
         })
-        
-//        dataSource?.supplementaryViewProvider = {
-//            collectionView,kind,indexPath in
-//
-//            guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseId, for: indexPath) as? SectionHeader else {
-//                fatalError()
-//            }
-//            guard  let section = Section(rawValue: indexPath.section) else {
-//                fatalError()
-//            }
-//
-//            sectionHeader.configureHeader(text: section.description(usersCount: self.users.count),
-//                                          font: .systemFont(ofSize: 28, weight: .light),
-//                                          textColor: #colorLiteral(red: 0.04945700034, green: 0.04515571317, blue: 0.1189446865, alpha: 1), textAlpha: 0.85)
-//            return sectionHeader
-//        }
-        
     }
     
 }
