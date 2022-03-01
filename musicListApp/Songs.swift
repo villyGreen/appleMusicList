@@ -14,6 +14,7 @@ struct Song : Hashable, Decodable {
 //    var image: String
 //    var nameOfSong: String
 //    var nameOfCreator: String
+//    var NameOfAlbomLabel: String
 //    var timeOfSong: String
 //    var id: String
 //

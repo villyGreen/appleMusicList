@@ -1,22 +1,47 @@
 [
 {
-    "username": "Сергей Никифиров",
-    "avatarStringURL": "human1",
+    "username": "Bewerly Hills",
+    "avatarStringURL": "https://music-ark.ru/upload/iblock/23e/23e3f8f8cc9ffec33ed0dec4ecca85b2.jpg",
     "id": 1
 },
 {
-    "username": "Кристиан Бэйл",
-    "avatarStringURL": "human2",
+    "username": "Knight of city",
+    "avatarStringURL": "https://avatars.yandex.net/get-music-content/5236179/38fc4962.a.17670677-3/m1000x1000?webp=false",
     "id": 2
 },
 {
-    "username": "Misha Red",
-    "avatarStringURL": "human3",
+    "username": "Mamble",
+    "avatarStringURL": "https://avatars.yandex.net/get-music-content/2357076/42fadbb9.a.10774796-3/m1000x1000?webp=false",
     "id": 3
 },
 {
-    "username": "Мария Корина",
-    "avatarStringURL": "human4",
+    "username": "DAMN",
+    "avatarStringURL": "https://bugaga.ru/uploads/posts/2014-10/1414432705_rasshirennye-versii-albomov-6.jpg",
     "id": 4
+},
+{
+    "username": "DAMN",
+    "avatarStringURL": "https://bugaga.ru/uploads/posts/2014-10/1414432705_rasshirennye-versii-albomov-6.jpg",
+    "id": 5
+},
+{
+    "username": "DAMN",
+    "avatarStringURL": "https://bugaga.ru/uploads/posts/2014-10/1414432705_rasshirennye-versii-albomov-6.jpg",
+    "id": 6
+},
+{
+    "username": "DAMN",
+    "avatarStringURL": "https://bugaga.ru/uploads/posts/2014-10/1414432705_rasshirennye-versii-albomov-6.jpg",
+    "id": 7
+},
+{
+    "username": "DAMN",
+    "avatarStringURL": "https://bugaga.ru/uploads/posts/2014-10/1414432705_rasshirennye-versii-albomov-6.jpg",
+    "id": 8
+},
+{
+    "username": "DAMN",
+    "avatarStringURL": "https://bugaga.ru/uploads/posts/2014-10/1414432705_rasshirennye-versii-albomov-6.jpg",
+    "id": 9
 }
 ]

@@ -18,19 +18,20 @@ class SearchViewController: UIViewController {
     
     var dataSource: UICollectionViewDiffableDataSource<Section,Song>?
     var collectionView: UICollectionView?
+    var contentView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVc()
-        setupCollectionnView()
-        setupDataSource()
-        
-        reloadData(searchText: nil)
+//        setupCollectionnView()
+//        setupDataSource()
+//        reloadData(searchText: nil)
+    setContentView()
     }
     
     private func setupVc() {
         view.backgroundColor = .white
-        title = "Search"
+        title = "Главное"
         searchBarController.searchBar.placeholder = "Поиск"
         searchBarController.obscuresBackgroundDuringPresentation = false
         definesPresentationContext = true
@@ -38,25 +39,6 @@ class SearchViewController: UIViewController {
         navigationItem.searchController = searchBarController
         searchBarController.searchBar.delegate = self
     }
-    
-//    private func setupCompositionalLayout() -> UICollectionViewLayout {
-//        print("In function ")
-//        let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) ->
-//            NSCollectionLayoutSection? in
-//            print("In block")
-//            guard let section = Section(rawValue: sectionIndex)
-//                else { fatalError("Unknown section")}
-//            switch section {
-//            case .songs:
-//                print("in case songs")
-//                return self.setupSongsSection()
-//            }
-//        }
-//        let config = UICollectionViewCompositionalLayoutConfiguration()
-//        config.interSectionSpacing = 20
-//        layout.configuration = config
-//        return layout
-//    }
     
     private func setupCompositionalLayout() -> UICollectionViewCompositionalLayout {
 
@@ -71,22 +53,24 @@ class SearchViewController: UIViewController {
     
     private func setupSongsSection() -> NSCollectionLayoutSection {
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-        
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.6))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                       subitem: item,
-                                                       count: 2)
-        group.interItemSpacing = .fixed(15)
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 15
-        section.contentInsets = NSDirectionalEdgeInsets(top: 15,
-                                                        leading: 15,
-                                                        bottom: 15,
-                                                        trailing: 15)
-        return section
-        
+       
+              let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+              
+              let item = NSCollectionLayoutItem(layoutSize: itemSize)
+              let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.6))
+              let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                             subitem: item,
+                                                             count: 2)
+              group.interItemSpacing = .fixed(15)
+              let section = NSCollectionLayoutSection(group: group)
+              section.interGroupSpacing = 15
+              section.contentInsets = NSDirectionalEdgeInsets(top: 15,
+                                                              leading: 15,
+                                                              bottom: 15,
+                                                              trailing: 15)
+//              let header = createHeaderSection()
+//              section.boundarySupplementaryItems = [header]
+              return section
     }
     
     private func reloadData(searchText: String?) {
@@ -119,12 +103,30 @@ class SearchViewController: UIViewController {
                         indexPath: indexPath)
         })
     }
+    
+    private func setContentView() {
+        contentView = HelloView()
+        view.addSubview(contentView!)
+        contentView?.translatesAutoresizingMaskIntoConstraints = false
+        contentView?.layer.cornerRadius = 10
+        contentView?.clipsToBounds = true
+        NSLayoutConstraint.activate([
+            contentView!.widthAnchor.constraint(equalToConstant: 350),
+            contentView!.heightAnchor.constraint(equalToConstant: 500),
+            contentView!.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120),
+            contentView!.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            contentView!.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+//            contentView!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+//            contentView!.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+//            contentView!.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -110)
+        ])
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        reloadData(searchText: searchText)
     }
 }
 
