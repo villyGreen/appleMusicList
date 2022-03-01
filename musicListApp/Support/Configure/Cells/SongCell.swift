@@ -55,6 +55,8 @@ class SongCell: UICollectionViewCell, CellConfiguring{
         containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         
         userImage.contentMode = .scaleAspectFill
+        userImage.layer.cornerRadius = 10
+        userImage.clipsToBounds = true
         userImage.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         userImage.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         userImage.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true

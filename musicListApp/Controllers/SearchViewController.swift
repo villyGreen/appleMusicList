@@ -23,10 +23,10 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVc()
-//        setupCollectionnView()
-//        setupDataSource()
-//        reloadData(searchText: nil)
-    setContentView()
+        setupCollectionnView()
+        setupDataSource()
+        reloadData(searchText: nil)
+//    setContentView()
     }
     
     private func setupVc() {
@@ -88,7 +88,7 @@ class SearchViewController: UIViewController {
         collectionView = UICollectionView(frame: view.bounds,
                                           collectionViewLayout: setupCompositionalLayout())
         collectionView!.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        collectionView!.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9764705882, blue: 1, alpha: 1)
+        collectionView!.backgroundColor = .white
         view.addSubview(collectionView!)
         collectionView?.delegate = self
         collectionView?.register(SongCell.self, forCellWithReuseIdentifier:SongCell.reuseID)
@@ -113,12 +113,8 @@ class SearchViewController: UIViewController {
         NSLayoutConstraint.activate([
             contentView!.widthAnchor.constraint(equalToConstant: 350),
             contentView!.heightAnchor.constraint(equalToConstant: 500),
-            contentView!.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120),
+            contentView!.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -110),
             contentView!.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            contentView!.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
-//            contentView!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-//            contentView!.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-//            contentView!.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -110)
         ])
     }
 }

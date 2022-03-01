@@ -9,10 +9,8 @@
 import UIKit
 
 
-
 class HelloView: UIView {
         let image = UIImageView()
-        let textToimage = UILabel()
     
 
     override init(frame: CGRect) {
@@ -26,17 +24,12 @@ class HelloView: UIView {
     
     private func setup() {
         self.addSubview(image)
-        image.addSubview(textToimage)
         image.translatesAutoresizingMaskIntoConstraints = false
-        textToimage.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "helloImage")
-//        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleAspectFill
         image.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         image.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         image.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         image.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-//        image.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-//        image.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
     }
-    
 }
