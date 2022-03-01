@@ -16,7 +16,7 @@ class AlbumViewController: UIViewController {
     let timeOfAlbum = UILabel()
     let nameOfCreator = UILabel()
     let plusButton = UIButton(type: .system)
-    
+    var tableView : UITableView?
     var song: Song?
     
     
@@ -34,7 +34,6 @@ class AlbumViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(mainImageView)
         view.addSubview(plusButton)
-        
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
         plusButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -51,7 +50,7 @@ class AlbumViewController: UIViewController {
         timeOfAlbum.font = UIFont.systemFont(ofSize: 11)
         timeOfAlbum.textColor = UIColor.black.withAlphaComponent(0.6)
         
-        nameOfCreator.text = "Robbin Wialiams"
+        nameOfCreator.text = "Test author"
         nameOfCreator.font = UIFont.systemFont(ofSize: 13)
         nameOfCreator.textColor = UIColor.black.withAlphaComponent(08)
         
@@ -61,7 +60,13 @@ class AlbumViewController: UIViewController {
         let contentStack = UIStackView(arrangedSubviews: [mainNameOfAlbum, nameOfCreator, timeOfAlbum])
         contentStack.axis = .vertical
         contentStack.spacing = 10
-        contentStack.translatesAutoresizingMaskIntoConstraints = false 
+        contentStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        tableView = UITableView(frame: CGRect(x: 0, y: 200, width: view.bounds.width, height: view.bounds.height - 300))
+        tableView?.register(songTableViewCell.self, forCellReuseIdentifier: songTableViewCell.id)
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        view.addSubview(tableView!)
         view.addSubview(contentStack)
         
         
@@ -81,4 +86,19 @@ class AlbumViewController: UIViewController {
         ])
     }
     
+}
+
+extension AlbumViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: songTableViewCell.id, for: indexPath) as! songTableViewCell
+        cell.numeration.text = "\(indexPath.row)"
+        cell.nameOfSong.text = "test song"
+        cell.timeOfSong.text = "3:21"
+        return cell
+    }
 }
