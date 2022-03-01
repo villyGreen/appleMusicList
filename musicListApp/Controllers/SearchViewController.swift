@@ -23,8 +23,9 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupVc()
         setupCollectionnView()
-        reloadData(searchText: nil)
         setupDataSource()
+        
+        reloadData(searchText: nil)
     }
     
     private func setupVc() {
@@ -110,12 +111,12 @@ class SearchViewController: UIViewController {
     }
     
     private func setupDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section,Song>(collectionView: collectionView!, cellProvider: { (collectionView, indexPath, song) -> UICollectionViewCell? in
-            print("sd")
-           return self.configureCell(collectionView: collectionView,
-            cellType: SongCell.self,
-            model: song,
-            indexPath: indexPath)
+        dataSource = UICollectionViewDiffableDataSource<Section, Song>(collectionView: collectionView!, cellProvider: { (collectionView, indexPath, song) -> UICollectionViewCell? in
+            print("fsdf")
+                return self.configureCell(collectionView: collectionView,
+                        cellType: SongCell.self,
+                        model: song,
+                        indexPath: indexPath)
         })
     }
 }
