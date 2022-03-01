@@ -33,6 +33,7 @@
 		3ABC900E27CE3B6900FF2153 /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC900D27CE3B6800FF2153 /* HelloView.swift */; };
 		3ABC901027CE522900FF2153 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC900F27CE522800FF2153 /* AlbumViewController.swift */; };
 		3ABC901227CE63BB00FF2153 /* songTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC901127CE63BB00FF2153 /* songTableViewCell.swift */; };
+		3ABC901427CE89E500FF2153 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC901327CE89E400FF2153 /* PlayerViewController.swift */; };
 		BC3A2FD33FE60B5A00B96E38 /* Pods_musicListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6332813E95668CA9CBC1FEEF /* Pods_musicListApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		3ABC900D27CE3B6800FF2153 /* HelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloView.swift; sourceTree = "<group>"; };
 		3ABC900F27CE522800FF2153 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		3ABC901127CE63BB00FF2153 /* songTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = songTableViewCell.swift; sourceTree = "<group>"; };
+		3ABC901327CE89E400FF2153 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		3DECF030EC3CB2A435729858 /* Pods-musicListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musicListApp.release.xcconfig"; path = "Target Support Files/Pods-musicListApp/Pods-musicListApp.release.xcconfig"; sourceTree = "<group>"; };
 		6332813E95668CA9CBC1FEEF /* Pods_musicListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_musicListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -129,6 +131,7 @@
 			children = (
 				3ABC900F27CE522800FF2153 /* AlbumViewController.swift */,
 				3ABC8FFB27C3F4D300FF2153 /* SearchViewController.swift */,
+				3ABC901327CE89E400FF2153 /* PlayerViewController.swift */,
 				3ABC8FFD27C3F53000FF2153 /* ListViewController.swift */,
 				3A9A40D027B2ECF600836909 /* MainViewController.swift */,
 				3A9A411827BA8CD100836909 /* TabBar */,
@@ -383,6 +386,7 @@
 				3ABC900A27CD3C5000FF2153 /* Bundle-Decodable.swift in Sources */,
 				3A9A40EC27B584A100836909 /*  extension + UIlabel.swift in Sources */,
 				3A9A40CF27B2ECF600836909 /* SceneDelegate.swift in Sources */,
+				3ABC901427CE89E500FF2153 /* PlayerViewController.swift in Sources */,
 				3ABC8FFE27C3F53000FF2153 /* ListViewController.swift in Sources */,
 				3ABC900527C408BE00FF2153 /* SongCell.swift in Sources */,
 				3A9A40D727B2ECF600836909 /* musicListApp.xcdatamodeld in Sources */,

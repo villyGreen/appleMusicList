@@ -16,6 +16,7 @@ class AlbumViewController: UIViewController {
     let timeOfAlbum = UILabel()
     let nameOfCreator = UILabel()
     let plusButton = UIButton(type: .system)
+    let listenButton = UIButton(type: .system)
     var tableView : UITableView?
     var song: Song?
     
@@ -33,9 +34,8 @@ class AlbumViewController: UIViewController {
     private func setup() {
         view.backgroundColor = .white
         view.addSubview(mainImageView)
-        view.addSubview(plusButton)
+       
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
-        plusButton.translatesAutoresizingMaskIntoConstraints = false
         
         let imageUrl = URL(string: song!.avatarStringURL)
         mainImageView.sd_setImage(with: imageUrl, completed: nil)
@@ -57,19 +57,29 @@ class AlbumViewController: UIViewController {
         plusButton.setTitle("Добавить", for: .normal)
         plusButton.tintColor = .systemRed
         
+        listenButton.setTitle("Слушать", for: .normal)
+        listenButton.tintColor = .red
+        
         let contentStack = UIStackView(arrangedSubviews: [mainNameOfAlbum, nameOfCreator, timeOfAlbum])
         contentStack.axis = .vertical
         contentStack.spacing = 10
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView = UITableView(frame: CGRect(x: 0, y: 200, width: view.bounds.width, height: view.bounds.height - 300))
+        tableView = UITableView(frame: CGRect(x: 0, y: 230, width: view.bounds.width, height: view.bounds.height - 300))
         tableView?.register(songTableViewCell.self, forCellReuseIdentifier: songTableViewCell.id)
+        tableView?.separatorStyle = .none
         tableView?.delegate = self
         tableView?.dataSource = self
         view.addSubview(tableView!)
         view.addSubview(contentStack)
         
+        let buttonsStackView = UIStackView(arrangedSubviews: [listenButton, plusButton])
+        buttonsStackView.axis = .horizontal
+        buttonsStackView.spacing = 30
+        buttonsStackView.distribution = .fillEqually
         
+        view.addSubview(buttonsStackView)
+        buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             mainImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
@@ -80,9 +90,9 @@ class AlbumViewController: UIViewController {
             contentStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
             contentStack.leadingAnchor.constraint(equalTo: mainImageView.trailingAnchor, constant: 30),
             contentStack.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: -20),
-            plusButton.topAnchor.constraint(equalTo: contentStack.bottomAnchor, constant: 5),
-            plusButton.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
-            plusButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
+            buttonsStackView.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 20),
+            buttonsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            buttonsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
         ])
     }
     
@@ -100,5 +110,11 @@ extension AlbumViewController: UITableViewDataSource, UITableViewDelegate {
         cell.nameOfSong.text = "test song"
         cell.timeOfSong.text = "3:21"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let playerVc = PlayerViewController(song: song!) else { return }
+        self.present(playerVc, animated: true, completion: nil)
     }
 }
