@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
         setupCollectionnView()
         setupDataSource()
         reloadData(searchText: nil)
-//    setContentView()
+        //    setContentView()
     }
     
     private func setupVc() {
@@ -41,36 +41,36 @@ class SearchViewController: UIViewController {
     }
     
     private func setupCompositionalLayout() -> UICollectionViewCompositionalLayout {
-
-           let layout = UICollectionViewCompositionalLayout(section: setupSongsSection())
-           let config = UICollectionViewCompositionalLayoutConfiguration()
-           config.interSectionSpacing = 20
-           layout.configuration = config
-           return layout
-       }
+        
+        let layout = UICollectionViewCompositionalLayout(section: setupSongsSection())
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 20
+        layout.configuration = config
+        return layout
+    }
     
     
     
     private func setupSongsSection() -> NSCollectionLayoutSection {
         
-       
-              let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-              
-              let item = NSCollectionLayoutItem(layoutSize: itemSize)
-              let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.6))
-              let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                             subitem: item,
-                                                             count: 2)
-              group.interItemSpacing = .fixed(15)
-              let section = NSCollectionLayoutSection(group: group)
-              section.interGroupSpacing = 15
-              section.contentInsets = NSDirectionalEdgeInsets(top: 15,
-                                                              leading: 15,
-                                                              bottom: 15,
-                                                              trailing: 15)
-//              let header = createHeaderSection()
-//              section.boundarySupplementaryItems = [header]
-              return section
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.6))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitem: item,
+                                                       count: 2)
+        group.interItemSpacing = .fixed(15)
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 15
+        section.contentInsets = NSDirectionalEdgeInsets(top: 15,
+                                                        leading: 15,
+                                                        bottom: 15,
+                                                        trailing: 15)
+        //              let header = createHeaderSection()
+        //              section.boundarySupplementaryItems = [header]
+        return section
     }
     
     private func reloadData(searchText: String?) {
@@ -97,10 +97,10 @@ class SearchViewController: UIViewController {
     private func setupDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Song>(collectionView: collectionView!, cellProvider: { (collectionView, indexPath, song) -> UICollectionViewCell? in
             print("fsdf")
-                return self.configureCell(collectionView: collectionView,
-                        cellType: SongCell.self,
-                        model: song,
-                        indexPath: indexPath)
+            return self.configureCell(collectionView: collectionView,
+                                      cellType: SongCell.self,
+                                      model: song,
+                                      indexPath: indexPath)
         })
     }
     
@@ -127,6 +127,9 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 extension SearchViewController : UICollectionViewDelegate {
-    
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard  let song = self.dataSource?.itemIdentifier(for: indexPath) as? Song else { return }
+        guard  let albumVc =  AlbumViewController(song: song) else { return }
+        self.present(albumVc, animated: true, completion: nil)
+    }
 }

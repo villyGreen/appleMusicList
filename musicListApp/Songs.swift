@@ -17,34 +17,11 @@ struct Song : Hashable, Decodable {
 //    var NameOfAlbomLabel: String
 //    var timeOfSong: String
 //    var id: String
-//
-//    func hash(into hasher: inout Hasher) {
-//           hasher.combine(id)
-//       }
-//
-//       static func == (lhs: Song,rhs: Song) -> Bool {
-//           return lhs.id == rhs.id
-//       }
-//
-//       func contains(searchText: String?) -> Bool {
-//           guard let searchText = searchText else {
-//               return true
-//           }
-//           if searchText.isEmpty {
-//               return true
-//           }
-//           let capitalizedText = searchText.capitalized
-//
-//           return nameOfSong.capitalized.contains(capitalizedText)
-//       }
+
     
     var username: String
-      var avatarStringURL: String
-//      var email: String
-//      var description: String
-//      var sex: String
-      
-      var id: Int
+    var avatarStringURL: String
+    var id: Int
     
     func hash(into hasher: inout Hasher) {
            hasher.combine(id)
