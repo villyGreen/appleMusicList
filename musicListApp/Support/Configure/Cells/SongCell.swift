@@ -24,10 +24,9 @@ class SongCell: UICollectionViewCell, CellConfiguring{
        guard let song:Song = value as? Song else {
            return
        }
-       userNameLabel.text = song.nameOfSong
-       let imageUrl = URL(string: song.image)
-    print(imageUrl);
-       userImage.sd_setImage(with: imageUrl, completed: nil)
+            userNameLabel.text = song.username
+           let imageUrl = URL(string: song.avatarStringURL)
+           userImage.sd_setImage(with: imageUrl, completed: nil)
    }
    
    private func setupConstraints() {

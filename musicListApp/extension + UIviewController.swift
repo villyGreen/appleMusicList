@@ -24,6 +24,7 @@ extension UIViewController {
            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseID, for: indexPath) as? T else {
                fatalError("Unknown id cell")
            }
+            print(model)
            cell.configure(value: model)
            return cell
        }

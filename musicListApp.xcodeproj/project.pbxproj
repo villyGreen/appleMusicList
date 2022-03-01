@@ -29,7 +29,7 @@
 		3ABC900527C408BE00FF2153 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC900427C408BE00FF2153 /* SongCell.swift */; };
 		3ABC900827C4092800FF2153 /* CellConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC900727C4092800FF2153 /* CellConfigure.swift */; };
 		3ABC900A27CD3C5000FF2153 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC900927CD3C4F00FF2153 /* Bundle-Decodable.swift */; };
-		3ABC900C27CD3C9800FF2153 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 3ABC900B27CD3C9700FF2153 /* users.json */; };
+		3ABC900C27CD3C9800FF2153 /* songs.json in Resources */ = {isa = PBXBuildFile; fileRef = 3ABC900B27CD3C9700FF2153 /* songs.json */; };
 		BC3A2FD33FE60B5A00B96E38 /* Pods_musicListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6332813E95668CA9CBC1FEEF /* Pods_musicListApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +59,7 @@
 		3ABC900427C408BE00FF2153 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		3ABC900727C4092800FF2153 /* CellConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigure.swift; sourceTree = "<group>"; };
 		3ABC900927CD3C4F00FF2153 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
-		3ABC900B27CD3C9700FF2153 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		3ABC900B27CD3C9700FF2153 /* songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songs.json; sourceTree = "<group>"; };
 		3DECF030EC3CB2A435729858 /* Pods-musicListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musicListApp.release.xcconfig"; path = "Target Support Files/Pods-musicListApp/Pods-musicListApp.release.xcconfig"; sourceTree = "<group>"; };
 		6332813E95668CA9CBC1FEEF /* Pods_musicListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_musicListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -137,7 +137,7 @@
 				3ABC900927CD3C4F00FF2153 /* Bundle-Decodable.swift */,
 				3A9A40D227B2ECF600836909 /* Main.storyboard */,
 				3A9A40D527B2ECF600836909 /* musicListApp.xcdatamodeld */,
-				3ABC900B27CD3C9700FF2153 /* users.json */,
+				3ABC900B27CD3C9700FF2153 /* songs.json */,
 				3A9A40DA27B2ECFD00836909 /* LaunchScreen.storyboard */,
 				3A9A40CE27B2ECF600836909 /* SceneDelegate.swift */,
 				3ABC900327C4088F00FF2153 /* Cells */,
@@ -291,7 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ABC900C27CD3C9800FF2153 /* users.json in Resources */,
+				3ABC900C27CD3C9800FF2153 /* songs.json in Resources */,
 				3A9A40F627B81E9B00836909 /* GoogleService-Info.plist in Resources */,
 				3A9A40DC27B2ECFD00836909 /* LaunchScreen.storyboard in Resources */,
 				3A9A40D927B2ECFD00836909 /* Assets.xcassets in Resources */,
@@ -458,7 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -512,7 +512,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
