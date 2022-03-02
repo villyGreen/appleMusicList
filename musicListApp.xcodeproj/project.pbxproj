@@ -23,6 +23,9 @@
 		3A9A40FB27BA31F700836909 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40FA27BA31F600836909 /* AuthService.swift */; };
 		3A9A40FD27BA478600836909 /* extension + UIviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40FC27BA478600836909 /* extension + UIviewController.swift */; };
 		3A9A411A27BA8D3800836909 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A411927BA8D3600836909 /* TabBarController.swift */; };
+		3AAB574F27CFB88A00C1916B /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB574E27CFB88A00C1916B /* AlbumCell.swift */; };
+		3AAB575127CFBDDD00C1916B /* Section Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB575027CFBDDD00C1916B /* Section Header.swift */; };
+		3AAB575327CFD3A500C1916B /* SongCellWithLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB575227CFD3A500C1916B /* SongCellWithLogo.swift */; };
 		3ABC8FFC27C3F4D300FF2153 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC8FFB27C3F4D300FF2153 /* SearchViewController.swift */; };
 		3ABC8FFE27C3F53000FF2153 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC8FFD27C3F53000FF2153 /* ListViewController.swift */; };
 		3ABC900127C4037500FF2153 /* Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC900027C4037500FF2153 /* Songs.swift */; };
@@ -57,6 +60,9 @@
 		3A9A40FA27BA31F600836909 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3A9A40FC27BA478600836909 /* extension + UIviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + UIviewController.swift"; sourceTree = "<group>"; };
 		3A9A411927BA8D3600836909 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3AAB574E27CFB88A00C1916B /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		3AAB575027CFBDDD00C1916B /* Section Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Section Header.swift"; sourceTree = "<group>"; };
+		3AAB575227CFD3A500C1916B /* SongCellWithLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCellWithLogo.swift; sourceTree = "<group>"; };
 		3ABC8FFB27C3F4D300FF2153 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3ABC8FFD27C3F53000FF2153 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3ABC900027C4037500FF2153 /* Songs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Songs.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 				3A9A40DA27B2ECFD00836909 /* LaunchScreen.storyboard */,
 				3A9A40CE27B2ECF600836909 /* SceneDelegate.swift */,
 				3ABC900327C4088F00FF2153 /* Cells */,
+				3AAB575027CFBDDD00C1916B /* Section Header.swift */,
 			);
 			path = Configure;
 			sourceTree = "<group>";
@@ -222,6 +229,8 @@
 			children = (
 				3ABC900427C408BE00FF2153 /* SongCell.swift */,
 				3ABC901127CE63BB00FF2153 /* songTableViewCell.swift */,
+				3AAB574E27CFB88A00C1916B /* AlbumCell.swift */,
+				3AAB575227CFD3A500C1916B /* SongCellWithLogo.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -383,12 +392,15 @@
 				3A9A40E727B2F3E800836909 /* RegisterViewController.swift in Sources */,
 				3A9A40CD27B2ECF600836909 /* AppDelegate.swift in Sources */,
 				3A9A40F227B6962E00836909 /* ValidateService.swift in Sources */,
+				3AAB575327CFD3A500C1916B /* SongCellWithLogo.swift in Sources */,
 				3ABC900A27CD3C5000FF2153 /* Bundle-Decodable.swift in Sources */,
 				3A9A40EC27B584A100836909 /*  extension + UIlabel.swift in Sources */,
+				3AAB574F27CFB88A00C1916B /* AlbumCell.swift in Sources */,
 				3A9A40CF27B2ECF600836909 /* SceneDelegate.swift in Sources */,
 				3ABC901427CE89E500FF2153 /* PlayerViewController.swift in Sources */,
 				3ABC8FFE27C3F53000FF2153 /* ListViewController.swift in Sources */,
 				3ABC900527C408BE00FF2153 /* SongCell.swift in Sources */,
+				3AAB575127CFBDDD00C1916B /* Section Header.swift in Sources */,
 				3A9A40D727B2ECF600836909 /* musicListApp.xcdatamodeld in Sources */,
 				3A9A40FD27BA478600836909 /* extension + UIviewController.swift in Sources */,
 				3ABC901227CE63BB00FF2153 /* songTableViewCell.swift in Sources */,

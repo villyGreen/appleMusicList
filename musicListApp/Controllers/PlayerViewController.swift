@@ -119,7 +119,7 @@ class PlayerViewController: UIViewController {
         
         let sideButtonsStackView = UIStackView(arrangedSubviews: [plusButton, moreButton])
         sideButtonsStackView.axis = .horizontal
-        sideButtonsStackView.spacing = 30
+        sideButtonsStackView.spacing = 220
         sideButtonsStackView.distribution = .fillEqually
         sideButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(sideButtonsStackView)
@@ -141,12 +141,12 @@ class PlayerViewController: UIViewController {
             buttonsStackView.topAnchor.constraint(equalTo: nameStack.bottomAnchor, constant: 40),
             buttonsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             buttonsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            volumeStackView.topAnchor.constraint(equalTo: buttonsStackView.bottomAnchor, constant: 80),
+            sideButtonsStackView.topAnchor.constraint(equalTo: buttonsStackView.bottomAnchor, constant: 40),
+            sideButtonsStackView.leadingAnchor.constraint(equalTo: buttonsStackView.leadingAnchor),
+            sideButtonsStackView.trailingAnchor.constraint(equalTo: buttonsStackView.trailingAnchor),
+            volumeStackView.topAnchor.constraint(equalTo: sideButtonsStackView.bottomAnchor, constant: 40),
             volumeStackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
             volumeStackView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
-            sideButtonsStackView.topAnchor.constraint(equalTo: volumeStackView.bottomAnchor, constant: 30),
-            sideButtonsStackView.leadingAnchor.constraint(equalTo: volumeStackView.leadingAnchor),
-            sideButtonsStackView.trailingAnchor.constraint(equalTo: volumeStackView.trailingAnchor)
         ])
     }
 }
