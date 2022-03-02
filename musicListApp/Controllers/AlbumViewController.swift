@@ -97,7 +97,6 @@ class AlbumViewController: UIViewController {
     }
     
 }
-
 extension AlbumViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
