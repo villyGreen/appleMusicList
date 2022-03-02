@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ListViewController: UIViewController {
     let searchBarController = UISearchController(searchResultsController: nil)
@@ -155,12 +156,15 @@ extension ListViewController:  UICollectionViewDelegate {
 
 extension ListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return songs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: songCellTableViewWithLogo.id, for: indexPath) as! songCellTableViewWithLogo
-        cell.numeration.text = "\(indexPath.row)"
+        cell.nameOfCreator.text = "Anton Golubkin"
+        if let url = URL(string: "\(songs[indexPath.row].avatarStringURL)") {
+            cell.imageLogo.sd_setImage(with: url, completed: nil)
+        }
         cell.nameOfSong.text = "test song"
         cell.timeOfSong.text = "3:21"
         return cell
@@ -170,5 +174,9 @@ extension ListViewController : UITableViewDelegate, UITableViewDataSource {
         print(indexPath.row)
         guard  let playerVc = PlayerViewController(song: songs[indexPath.row]) else { return }
         self.present(playerVc, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 63
     }
 }

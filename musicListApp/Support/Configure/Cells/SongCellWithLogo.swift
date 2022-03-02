@@ -10,7 +10,7 @@ import UIKit
 class songCellTableViewWithLogo: UITableViewCell {
     
     static let id = "songCellTableViewWithLogo"
-    var numeration = UILabel()
+    var nameOfCreator = UILabel()
         var imageLogo = UIImageView()
            var nameOfSong = UILabel()
            var timeOfSong = UILabel()
@@ -28,11 +28,11 @@ class songCellTableViewWithLogo: UITableViewCell {
     
     private func setUI() {
         self.selectionStyle = .none
+        nameOfCreator.font = UIFont.systemFont(ofSize: 13)
+        nameOfCreator.textColor = UIColor.black.withAlphaComponent(0.7)
         imageLogo.image = UIImage(named: "defaultMusicLogo")
         imageLogo.contentMode = .scaleAspectFill
-        numeration.font = UIFont.systemFont(ofSize: 13)
-        numeration.textColor = UIColor.black.withAlphaComponent(0.6)
-        nameOfSong.font = UIFont.systemFont(ofSize: 13)
+        nameOfSong.font = UIFont.systemFont(ofSize: 15)
         nameOfSong.textColor = UIColor.black.withAlphaComponent(0.9)
         nameOfSong.textAlignment = .left
         timeOfSong.font = UIFont.systemFont(ofSize: 12)
@@ -43,30 +43,32 @@ class songCellTableViewWithLogo: UITableViewCell {
   
 
     private func setupConstraints() {
-        self.addSubview(numeration)
         self.addSubview(nameOfSong)
         self.addSubview(timeOfSong)
         self.addSubview(sideButton)
+        self.addSubview(nameOfCreator)
         self.addSubview(imageLogo)
+        nameOfCreator.translatesAutoresizingMaskIntoConstraints = false
         imageLogo.translatesAutoresizingMaskIntoConstraints = false
-        numeration.translatesAutoresizingMaskIntoConstraints = false
         nameOfSong.translatesAutoresizingMaskIntoConstraints = false
         timeOfSong.translatesAutoresizingMaskIntoConstraints = false
         sideButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            numeration.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            numeration.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            imageLogo.heightAnchor.constraint(equalToConstant: 50),
-            imageLogo.widthAnchor.constraint(equalToConstant: 50),
+            imageLogo.heightAnchor.constraint(equalToConstant: 60),
+            imageLogo.widthAnchor.constraint(equalToConstant: 60),
             imageLogo.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            imageLogo.leadingAnchor.constraint(equalTo: numeration.trailingAnchor, constant: 15),
-            nameOfSong.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            nameOfSong.leadingAnchor.constraint(equalTo: imageLogo.trailingAnchor, constant: 15),
+            imageLogo.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             sideButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             sideButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
             timeOfSong.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            timeOfSong.trailingAnchor.constraint(equalTo: self.sideButton.leadingAnchor, constant: -15)
+            timeOfSong.trailingAnchor.constraint(equalTo: self.sideButton.leadingAnchor, constant: -15),
+            nameOfSong.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+                     nameOfSong.leadingAnchor.constraint(equalTo: imageLogo.trailingAnchor, constant: 15),
+                     nameOfSong.trailingAnchor.constraint(equalTo: timeOfSong.leadingAnchor, constant: -120),
+                     nameOfCreator.topAnchor.constraint(equalTo: nameOfSong.bottomAnchor, constant: 5),
+                     nameOfCreator.leadingAnchor.constraint(equalTo: imageLogo.trailingAnchor, constant: 15),
+                     nameOfCreator.trailingAnchor.constraint(equalTo: timeOfSong.leadingAnchor, constant: -120)
         ])
     }
 }
