@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
         setupCollectionnView()
         setupDataSource()
         reloadData(searchText: nil)
-//            setContentView()
+        //            setContentView()
     }
     
     private func setupVc() {

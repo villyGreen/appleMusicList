@@ -50,6 +50,7 @@ class PlayerViewController: UIViewController {
         plusButton.tintColor = .systemTeal
         moreButton.setImage(UIImage(named: "moreButton"), for: .normal)
         moreButton.tintColor = .systemTeal
+        moreButton.addTarget(self, action: #selector(showDetailAllert), for: .touchUpInside)
         
         volumeDownImage.image = UIImage(named: "Icon Min")
         volumeDownImage.contentMode = .scaleAspectFill
@@ -149,4 +150,9 @@ class PlayerViewController: UIViewController {
             volumeStackView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
         ])
     }
+    
+    @objc private func showDetailAllert() {
+        self.showSideAllert(nameOfCreator: "test", nameOfSong: song!.username, imageToAlbum: song!.avatarStringURL, startAnimate: 0.0, endAnimate: 1.0, done: false) { _ in
+        }
+}
 }

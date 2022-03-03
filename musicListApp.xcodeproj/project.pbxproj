@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031BFF2C27D09380003C267C /* sideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031BFF2B27D09380003C267C /* sideCell.swift */; };
 		3A9A40CD27B2ECF600836909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40CC27B2ECF600836909 /* AppDelegate.swift */; };
 		3A9A40CF27B2ECF600836909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40CE27B2ECF600836909 /* SceneDelegate.swift */; };
 		3A9A40D127B2ECF600836909 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40D027B2ECF600836909 /* MainViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		031BFF2B27D09380003C267C /* sideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideCell.swift; sourceTree = "<group>"; };
 		1C3FF299E222113930516A26 /* Pods-musicListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musicListApp.debug.xcconfig"; path = "Target Support Files/Pods-musicListApp/Pods-musicListApp.debug.xcconfig"; sourceTree = "<group>"; };
 		3A9A40C927B2ECF600836909 /* musicListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musicListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9A40CC27B2ECF600836909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				3ABC901127CE63BB00FF2153 /* songTableViewCell.swift */,
 				3AAB574E27CFB88A00C1916B /* AlbumCell.swift */,
 				3AAB575227CFD3A500C1916B /* SongCellWithLogo.swift */,
+				031BFF2B27D09380003C267C /* sideCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				3ABC901427CE89E500FF2153 /* PlayerViewController.swift in Sources */,
 				3ABC8FFE27C3F53000FF2153 /* ListViewController.swift in Sources */,
 				3ABC900527C408BE00FF2153 /* SongCell.swift in Sources */,
+				031BFF2C27D09380003C267C /* sideCell.swift in Sources */,
 				3AAB575127CFBDDD00C1916B /* Section Header.swift in Sources */,
 				3A9A40D727B2ECF600836909 /* musicListApp.xcdatamodeld in Sources */,
 				3A9A40FD27BA478600836909 /* extension + UIviewController.swift in Sources */,

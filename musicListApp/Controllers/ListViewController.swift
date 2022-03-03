@@ -154,12 +154,12 @@ extension ListViewController:  UICollectionViewDelegate {
     }
 }
 
-extension ListViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ListViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songs.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: songCellTableViewWithLogo.id, for: indexPath) as! songCellTableViewWithLogo
         cell.nameOfCreator.text = "Anton Golubkin"
         if let url = URL(string: "\(songs[indexPath.row].avatarStringURL)") {
