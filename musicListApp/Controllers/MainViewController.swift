@@ -9,21 +9,17 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
-
-
-@IBAction func registerAction(_ sender: UIButton) {
+    @IBAction func registerAction(_ sender: UIButton) {
         let registerVc = RegisterViewController()
-        registerVc.modalPresentationStyle = .fullScreen
-        self.present(registerVc, animated: true, completion: nil)
+        transition(vc: registerVc)
     }
     @IBAction func inputAction(_ sender: UIButton) {
         let authVc = AuthViewController()
         self.present(authVc, animated: true, completion: nil)
-      
     }
 }

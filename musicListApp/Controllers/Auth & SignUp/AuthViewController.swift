@@ -118,11 +118,12 @@ extension AuthViewController {
                 print("jj")
                 AuthService.shared.logIn(email: mailTF.text!, password: passwordTf.text!) { (result) in
                     switch result {
-                    case .success(let _):
-                        let tabbar = TabBarController()
-                        tabbar.modalTransitionStyle = .crossDissolve
-                        tabbar.modalPresentationStyle = .fullScreen
-                        self.present(tabbar, animated: true, completion: nil)
+                    case .success( _):
+                        let tabBar = TabBarController()
+                        self.transition(vc: tabBar)
+//                        tabbar.modalTransitionStyle = .crossDissolve
+//                        tabbar.modalPresentationStyle = .fullScreen
+//                        self.present(tabbar, animated: true, completion: nil)
                     case .failure(let error):
                           self.showAlert(title: "Ошибка", message: error.localizedDescription,actionOne: "Ok", actionTwo: "Back")
                     }

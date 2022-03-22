@@ -67,6 +67,20 @@ extension UIViewController {
         ])
         
     }
+    func transition(vc: UIViewController?) {
+                 guard let secondVc = vc else { return }
+                 let window = UIApplication.shared.windows[0] as UIWindow
+                 UIView.transition(
+                     from: window.rootViewController!.view,
+                     to: secondVc.view,
+                     duration: 0.20,
+                     options: .transitionCrossDissolve,
+                     completion: { _ in
+                         window.rootViewController = secondVc
+                 })
+             }
+         
+    
 }
 
 
@@ -81,7 +95,7 @@ extension UIViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gg", for: indexPath)
         cell.textLabel!.text = "\(actions[indexPath.row])"
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
-        cell.textLabel?.textColor = .black.withAlphaComponent(0.8)
+        cell.textLabel?.textColor = UIColor.black.withAlphaComponent(0.8)
         cell.selectionStyle = .none
         cell.backgroundColor = .systemFill
         return cell
