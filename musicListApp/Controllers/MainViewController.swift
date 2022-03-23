@@ -12,6 +12,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("loadd!!!!")
+        DataRequestService.shared.getData(searchText: "Nirvana")
         
     }
     @IBAction func registerAction(_ sender: UIButton) {

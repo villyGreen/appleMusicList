@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		031BFF2C27D09380003C267C /* sideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031BFF2B27D09380003C267C /* sideCell.swift */; };
+		3A7004A527EB77C100AD6143 /* DataRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7004A427EB77C100AD6143 /* DataRequestService.swift */; };
 		3A9A40CD27B2ECF600836909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40CC27B2ECF600836909 /* AppDelegate.swift */; };
 		3A9A40CF27B2ECF600836909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40CE27B2ECF600836909 /* SceneDelegate.swift */; };
 		3A9A40D127B2ECF600836909 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A40D027B2ECF600836909 /* MainViewController.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		031BFF2B27D09380003C267C /* sideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideCell.swift; sourceTree = "<group>"; };
 		1C3FF299E222113930516A26 /* Pods-musicListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musicListApp.debug.xcconfig"; path = "Target Support Files/Pods-musicListApp/Pods-musicListApp.debug.xcconfig"; sourceTree = "<group>"; };
+		3A7004A427EB77C100AD6143 /* DataRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequestService.swift; sourceTree = "<group>"; };
 		3A9A40C927B2ECF600836909 /* musicListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musicListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9A40CC27B2ECF600836909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A9A40CE27B2ECF600836909 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				3A9A40F127B6962E00836909 /* ValidateService.swift */,
 				3A9A40FA27BA31F600836909 /* AuthService.swift */,
+				3A7004A427EB77C100AD6143 /* DataRequestService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				3A9A40D127B2ECF600836909 /* MainViewController.swift in Sources */,
 				3A9A40E727B2F3E800836909 /* RegisterViewController.swift in Sources */,
 				3A9A40CD27B2ECF600836909 /* AppDelegate.swift in Sources */,
+				3A7004A527EB77C100AD6143 /* DataRequestService.swift in Sources */,
 				3A9A40F227B6962E00836909 /* ValidateService.swift in Sources */,
 				3AAB575327CFD3A500C1916B /* SongCellWithLogo.swift in Sources */,
 				3ABC900A27CD3C5000FF2153 /* Bundle-Decodable.swift in Sources */,
